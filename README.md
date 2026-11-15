@@ -6,7 +6,8 @@ A voice assistant for your Pixel. Say "Jarvis" or long-press the power button, t
 
 On your Pixel:
 
-1. Open **github.com/W7CTY/Jarvis/releases** and tap the `.apk` file under the latest release to download it.
+1. Open this link to download the latest version:
+   **https://github.com/W7CTY/Jarvis/raw/main/apk/jarvis-1.1.0.apk**
 2. Open the download. If Android blocks it, tap **Settings**, turn on **Allow from this source**, go back and tap **Install**. If Play Protect says it doesn't recognize the app, tap **Install anyway**. That's normal for apps from outside the Play Store.
 3. Open Jarvis. It offers to delete the downloaded APK. Tap **CHOOSE APK** and pick the file.
 
@@ -113,6 +114,6 @@ Format: `name | GET or POST | URL | what it does`. Jarvis reads the description 
 
 ## Changelog
 
-**1.1.0**: Jarvis now updates itself from GitHub releases. Smaller, hardened app that refuses to run if it's been tampered with.
+**1.1.0**: Jarvis now updates itself from GitHub. Smaller, hardened app that refuses to run if it's been tampered with.
 
 **1.0.0**: First release: voice and wake word, default-assistant support, phone control, calendar, texts, calls, weather, web answers, memory, AllStarLink node control, and custom station endpoints.
