@@ -6,7 +6,7 @@ A voice assistant for your Pixel. Say "Jarvis" or long-press the power button, t
 
 On your Pixel:
 
-1. Open **github.com/W7CTY/jarvis/releases** and tap the `.apk` file under the latest release to download it.
+1. Open **github.com/W7CTY/Jarvis/releases** and tap the `.apk` file under the latest release to download it.
 2. Open the download. If Android blocks it, tap **Settings**, turn on **Allow from this source**, go back and tap **Install**. If Play Protect says it doesn't recognize the app, tap **Install anyway**. That's normal for apps from outside the Play Store.
 3. Open Jarvis. It offers to delete the downloaded APK. Tap **CHOOSE APK** and pick the file.
 
