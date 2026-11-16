@@ -1,13 +1,13 @@
 # Jarvis
 
-A voice assistant for your Pixel. Say "Jarvis" or long-press the power button, then talk. It answers out loud and acts for you: calls, texts, alarms, calendar, weather, live web answers, your phone's settings, and your AllStarLink node.
+A voice assistant for your Pixel. Say "Hey Jarvis" or long-press the power button, then talk. It answers out loud and acts for you: calls, texts, alarms, calendar, weather, live web answers, your phone's settings, and your AllStarLink node.
 
 ## Install
 
 On your Pixel:
 
 1. Open this link to download the latest version:
-   **https://github.com/W7CTY/Jarvis/raw/main/apk/jarvis-1.1.0.apk**
+   **https://github.com/W7CTY/Jarvis/raw/main/apk/jarvis-1.2.0.apk**
 2. Open the download. If Android blocks it, tap **Settings**, turn on **Allow from this source**, go back and tap **Install**. If Play Protect says it doesn't recognize the app, tap **Install anyway**. That's normal for apps from outside the Play Store.
 3. Open Jarvis. It offers to delete the downloaded APK. Tap **CHOOSE APK** and pick the file.
 
@@ -30,14 +30,14 @@ Open Jarvis, tap the sliders icon (top right), and work down the list:
    - *Display over other apps*: lets Jarvis open apps, set alarms and navigate when you start it hands-free
    - *Notification access*: lets Jarvis read your notifications to you
    - *Do Not Disturb access*
-3. **Wake word**: get a free access key at console.picovoice.ai, paste it, then turn on **Wake word "Jarvis"**. Detection runs entirely on the phone. A small notification shows while it's listening.
+3. **Wake phrase**: turn on **Wake phrase "Hey Jarvis"**. No account or key is needed. Listening happens entirely on the phone, and a small notification shows while it's on. If it misses you or triggers by itself, adjust **Wake sensitivity**.
 4. **About you**: your name and home city.
 
 Keys are encrypted with the phone's hardware keystore. Once saved, they can only be replaced or cleared, never displayed again.
 
 ## Talking to Jarvis
 
-Tap the glowing core, tap the mic, say "Jarvis", or long-press power. You can also type.
+Tap the glowing core, tap the mic, say "Hey Jarvis", or long-press power. You can also type.
 
 - "What's the weather this weekend?"
 - "Text Sarah I'm running 10 minutes late"
@@ -113,6 +113,8 @@ Format: `name | GET or POST | URL | what it does`. Jarvis reads the description 
 - The wake word, keys, memories and conversation history stay on the phone and are excluded from Google backups.
 
 ## Changelog
+
+**1.2.0**: New wake phrase "Hey Jarvis", built in and free. No Picovoice account needed.
 
 **1.1.0**: Jarvis now updates itself from GitHub. Smaller, hardened app that refuses to run if it's been tampered with.
 
