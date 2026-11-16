@@ -1,13 +1,13 @@
 # Jarvis
 
-A voice assistant for your Pixel. Say "Hey Jarvis" or long-press the power button, then talk. It answers out loud and acts for you: calls, texts, alarms, calendar, weather, live web answers, your phone's settings, and your AllStarLink node.
+A voice assistant for your Pixel. Say "Hey Jarvis" or long-press the power button, then talk. It answers out loud and acts for you: calls, texts, alarms, calendar, weather, live web answers, and your phone's settings.
 
 ## Install
 
 On your Pixel:
 
 1. Open this link to download the latest version:
-   **https://github.com/W7CTY/Jarvis/raw/main/apk/jarvis-1.2.0.apk**
+   **https://github.com/W7CTY/Jarvis/raw/main/apk/jarvis-1.3.0.apk**
 2. Open the download. If Android blocks it, tap **Settings**, turn on **Allow from this source**, go back and tap **Install**. If Play Protect says it doesn't recognize the app, tap **Install anyway**. That's normal for apps from outside the Play Store.
 3. Open Jarvis. It offers to delete the downloaded APK. Tap **CHOOSE APK** and pick the file.
 
@@ -59,48 +59,13 @@ If Jarvis ends a reply with a question, the mic reopens so you can just answer. 
 
 **On the lock screen:** by default Jarvis won't respond while the phone is locked, so nobody nearby can text or call as you. You can change this under *Respond while locked*.
 
-## Your AllStarLink node
-
-Jarvis talks to the node over the Asterisk Manager Interface (AMI) on your home network.
-
-On the node, add a dedicated AMI user to `/etc/asterisk/manager.conf`. Use a long random secret, and change the `permit` line to match your LAN:
-
-```ini
-[jarvis]
-secret = PUT-A-LONG-RANDOM-SECRET-HERE
-deny = 0.0.0.0/0.0.0.0
-permit = 192.168.1.0/255.255.255.0
-read = system,call,command
-write = system,call,command
-```
-
-Make sure `enabled = yes` in `[general]`, and that `bindaddr` isn't `127.0.0.1` (use the node's LAN IP or `0.0.0.0`). Then:
-
-```bash
-sudo asterisk -rx "manager reload"
-# open AMI to your home LAN zone only, never the 44net zone
-sudo firewall-cmd --zone=home --add-port=5038/tcp --permanent
-sudo firewall-cmd --reload
-```
-
-In Jarvis settings → STATION, enter the node number, the node's LAN IP, port 5038, the user `jarvis`, and the secret.
-
-Then try:
-
-- "How's the node?"
-- "Connect to 2000"
-- "Monitor node 41223"
-- "Disconnect from 2000" / "Disconnect all"
-
-AMI sends its login in plain text, so this only works, and should only be used, on your home network.
-
 ## Your dashboards (WPSD, Control Center, anything with an HTTP API)
 
 Under STATION → *Station endpoints*, add one line per thing you want Jarvis to be able to ask about:
 
 ```
-wpsd_status | GET | http://192.168.1.60:8000/api/status | Hotspot mode, last heard and Pi health
-node_dash   | GET | http://192.168.1.50:5000/api/status | Control Center status
+wpsd_status    | GET | http://192.168.1.60:8000/api/status | Hotspot mode, last heard and Pi health
+control_center | GET | http://192.168.1.50:5000/api/status | Control Center status
 ```
 
 Format: `name | GET or POST | URL | what it does`. Jarvis reads the description to know when to use each one. POST endpoints ask for confirmation first. Jarvis can reach only the URLs you list here.
@@ -113,6 +78,8 @@ Format: `name | GET or POST | URL | what it does`. Jarvis reads the description 
 - The wake word, keys, memories and conversation history stay on the phone and are excluded from Google backups.
 
 ## Changelog
+
+**1.3.0**: Removed AllStarLink node control.
 
 **1.2.0**: New wake phrase "Hey Jarvis", built in and free. No Picovoice account needed.
 
